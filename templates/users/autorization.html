@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <style>
+    body {
+      background-color: #222;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .profile-btn {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .dropdown {
+      position: fixed;
+      top: 40px;
+      right: 15px;
+      background-color: #333;
+      padding: 10px;
+      border-radius: 5px;
+      display: none;
+      z-index: 1;
+    }
+    .dropdown-item {
+      margin-bottom: 10px;
+      cursor: pointer;
+      color: #fff;
+    }
+    .dropdown-item:hover {
+      color: #fff;
+      background-color: #666;
+    }
+    .dropdown-item:last-child {
+      margin-bottom: 0;
+    }
+    .profile-btn:hover + .dropdown, .dropdown:hover {
+      display: block;
+    }
+    .message-container {
+      background-color: #333;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      width: 300px;
+      text-align: center;
+    }
+    .dropdown a {
+      color: #fff;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <button class="profile-btn">Profile</button>
+  <div class="dropdown">
+    <div class="dropdown-item"><a href="/profile_settings">Profile Settings</a></div>
+    <div class="dropdown-item"><a href="/">Logout</a></div>
+  </div>
+  <div class="message-container">
+    <h2>Welcome to main autorized page!</h2>
+  </div>
+</body>
+</html>
