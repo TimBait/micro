@@ -1,7 +1,6 @@
 *.pyc
 *~
 __pycache__
-ProjectX
 db.postgre
 /static
 .DS_Store
