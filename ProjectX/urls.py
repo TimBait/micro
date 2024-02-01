@@ -22,26 +22,28 @@ from users.models import User
 
 
 # Serializers define the API representation.
-class UserSerializer(serializers.HyperlinkedModelSerializer):
+class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ['url', 'username', 'email', 'is_staff']
+        fields = ['id', 'login', 'password', 'is_active']
 
-# ViewSets define the view behavior.
-class UserViewSet(viewsets.ModelViewSet):
+
+class User(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
+    class Meta:
+        db_table = 'users'
 
 # Routers provide an easy way of automatically determining the URL conf.
 router = routers.DefaultRouter()
-router.register(r'users', UserViewSet)
+router.register(r'users', User)
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     #path('', views.micro_auth),
-    path('', include(router.urls)),
     path('autorization/', views.autorization),
     path('profile_settings/', views.profile_settings),
+    path('', include(router.urls)),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 ]
