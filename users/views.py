@@ -1,5 +1,27 @@
-from django.http import HttpResponse
 from django.template import loader
+from django.http import HttpResponse
+from users.models import User
+from users.serializers import UserSerializer
+from rest_framework import viewsets
+from rest_framework.decorators import action
+from rest_framework.response import Response
+
+
+
+
+
+class UserViewSet(viewsets.ModelViewSet):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+
+    @action(detail=True)
+    def highlight(self, request, *args, **kwargs):
+        user = self.get_object()
+        return Response(user.highlighted)
+
+    def perform_create(self, serializer):
+        serializer.save()
+
 
 
 def micro_auth(request):
