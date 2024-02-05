@@ -5,22 +5,21 @@ from users.serializers import UserSerializer
 from rest_framework import viewsets
 from rest_framework.decorators import action
 from rest_framework.response import Response
-
-
-
+from drf_spectacular.utils import extend_schema, extend_schema_view
+from rest_framework import status
 
 
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
 
-    @action(detail=True)
-    def highlight(self, request, *args, **kwargs):
-        user = self.get_object()
-        return Response(user.highlighted)
+    #@action(detail=True)
+    #def highlight(self, request, *args, **kwargs):
+        #user = self.get_object()
+        #return Response(user.highlighted)   #метод изменения определенных данных
 
-    def perform_create(self, serializer):
-        serializer.save()
+    #def perform_create(self, serializer):
+        #serializer.save()
 
 
 
