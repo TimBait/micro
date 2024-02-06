@@ -10,8 +10,8 @@ from rest_framework import status
 
 
 class UserViewSet(viewsets.ModelViewSet):
-    queryset = User.objects.all()
     serializer_class = UserSerializer
+    queryset = User.objects.all()
 
     #@action(detail=True)
     #def highlight(self, request, *args, **kwargs):
