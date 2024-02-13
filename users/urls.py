@@ -3,6 +3,7 @@ from rest_framework.routers import DefaultRouter
 from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView
 from users import views
 
+
 # Create a router and register our ViewSets with it.
 router = DefaultRouter()
 router.register(r'users', views.UserViewSet, basename='users')
